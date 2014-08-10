@@ -13,13 +13,13 @@ describe('angularjs-console', function() {
 
   it('should trigger focus on textarea after clicking in console area', function() {
     element(by.css('div.angularjs-console-terminal')).click();
-    expect(browser.driver.switchTo().activeElement().getAttribute('id')).toEqual('angularjs-console-typer');
+    expect(browser.driver.switchTo().activeElement().getAttribute('class')).toContain('angularjs-console-typer');
   });
 
   it('should displayed entered command lines', function() {
     element(by.css('div.angularjs-console-terminal')).click();
 
-    var textarea = element(by.css('textarea#angularjs-console-typer'));
+    var textarea = element(by.css('textarea.angularjs-console-typer'));
     textarea.sendKeys('hello world !');
     textarea.sendKeys(protractor.Key.ENTER);
     textarea.sendKeys('foo');

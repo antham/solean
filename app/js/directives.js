@@ -8,7 +8,7 @@ angular.module('angularjsConsole.directives', [])
     return {
       restrict: 'AEC',
       template:
-      '<textarea style="position:absolute;top:0;left:-9999px;" ng-keyup="handleInput($event);" ng-model="currentCommand" id="angularjs-console-typer" ng-trim="false"></textarea>' +
+      '<textarea style="position:absolute;top:0;left:-9999px;" ng-keyup="handleInput($event);" ng-model="currentCommand" class="angularjs-console-typer" ng-trim="false"></textarea>' +
       '<div class="angularjs-console-command-block" ng-repeat="command in commands track by $index">' +
         '<span class="angularjs-console-prompt-label">{{ promptLabel }}</span>' +
         '<span class="angularjs-console-command" ng-if="!$last">{{ command }}</span>' +
