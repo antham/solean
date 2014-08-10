@@ -1,0 +1,36 @@
+div.angularjs-console-terminal
+{
+    height:200px;
+    background:#333;
+    padding:0.5em;
+
+    overflow:auto;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+div.angularjs-console-terminal div.angularjs-console-command-block
+{
+    color:#fff;
+    font-family:monospace;
+}
+
+div.angularjs-console-terminal span.angularjs-console-cursor
+{
+    background:#fefefe;
+    color:#333;
+    font-weight:bold
+}
+
+div.angularjs-console-terminal div.angularjs-console-message-error
+{
+    color:#ef0505;
+    font-family:sans-serif;
+    font-weight:bold;
+    padding:0.1em;
+}
+
+div.angularjs-console-terminal span.angularjs-console-prompt-label
+{
+    font-weight:bold
+}
