@@ -3,7 +3,10 @@
 /* https://github.com/angular/protractor/blob/master/docs/getting-started.md */
 
 describe('angularjs-console', function() {
-  browser.get('index.html');
+
+  beforeEach(function() {
+    browser.get('index.html');
+  });
 
   it('should showing up new command line field at startup', function() {
     expect(element.all(by.css('div.angularjs-console-terminal')).count()).toEqual(1);
