@@ -9,6 +9,7 @@ describe('angularjs-console', function() {
   });
 
   it('should showing up new command line field at startup', function() {
+    expect(element(by.css('span.angularjs-console-welcome-message')).getText()).toEqual('Welcome on this angularjs console demo');
     expect(element.all(by.css('div.angularjs-console-terminal')).count()).toEqual(1);
     expect(element(by.css('span.angularjs-console-prompt-label')).getText()).toEqual('root@localhost >');
     expect(element(by.css('span.angularjs-console-prompt')).getText()).toEqual('');
@@ -52,7 +53,7 @@ describe('angularjs-console', function() {
       textarea.sendKeys(protractor.Key.ENTER);
     }
 
-    expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollTop')).toEqual('34');
-    expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollHeight')).toEqual('234');
+    expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollTop')).toEqual('54');
+    expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollHeight')).toEqual('254');
   });
 });

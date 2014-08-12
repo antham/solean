@@ -9,5 +9,6 @@ angular.module('angularjsConsole', [
     'mapping':{
       'carriageReturn': 13
     },
-    'promptLabel': 'root@localhost > '
+    'promptLabel': 'root@localhost > ',
+    'welcomeMessage': 'Welcome on this angularjs console demo'
   });

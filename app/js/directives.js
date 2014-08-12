@@ -8,6 +8,7 @@ angular.module('angularjsConsole.directives', [])
     return {
       restrict: 'AEC',
       template:
+      '<span class="angularjs-console-welcome-message" ng-if="welcomeMessage">{{ welcomeMessage }}</span>' +
         '<div class="angularjs-console-command-block" ng-repeat="command in commands track by $index">' +
         '<span class="angularjs-console-prompt-label">{{ promptLabel }}</span>' +
         '<span class="angularjs-console-command" ng-if="!$last">{{ command }}</span>' +
@@ -17,6 +18,7 @@ angular.module('angularjsConsole.directives', [])
         '<textarea style="position:fixed;left:-9999px;" ng-keyup="handleInput($event);" ng-model="currentCommand" class="angularjs-console-typer" ng-trim="false"></textarea>',
       link: function link(scope, element) {
         scope.promptLabel = config.promptLabel;
+        scope.welcomeMessage = config.welcomeMessage;
 
         scope.commands = [''];
 

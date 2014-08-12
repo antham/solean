@@ -9,6 +9,13 @@ div.angularjs-console-terminal
     font-size: 14px;
 }
 
+div.angularjs-console-terminal span.angularjs-console-welcome-message
+{
+    color: #ffd700;
+    font-family: monospace;
+    font-weight: bold
+}
+
 div.angularjs-console-terminal div.angularjs-console-command-block
 {
     color:#fff;
