@@ -8,13 +8,13 @@ angular.module('angularjsConsole.directives', [])
     return {
       restrict: 'AEC',
       template:
-      '<textarea style="position:absolute;top:0;left:-9999px;" ng-keyup="handleInput($event);" ng-model="currentCommand" class="angularjs-console-typer" ng-trim="false"></textarea>' +
-      '<div class="angularjs-console-command-block" ng-repeat="command in commands track by $index">' +
+        '<div class="angularjs-console-command-block" ng-repeat="command in commands track by $index">' +
         '<span class="angularjs-console-prompt-label">{{ promptLabel }}</span>' +
         '<span class="angularjs-console-command" ng-if="!$last">{{ command }}</span>' +
         '<span ng-if="$last" class="angularjs-console-prompt">{{currentCommand}}</span>' +
-        '<span ng-if="$last" class="angularjs-console-cursor">&nbsp;</span>' +
-        '</div>',
+        '<span ng-if="$last" class="angularjs-console-cursor" ng-init="scrollDown();">&nbsp;</span>' +
+        '</div>' +
+        '<textarea style="position:fixed;left:-9999px;" ng-keyup="handleInput($event);" ng-model="currentCommand" class="angularjs-console-typer" ng-trim="false"></textarea>',
       link: function link(scope, element) {
         scope.promptLabel = config.promptLabel;
 
@@ -25,6 +25,10 @@ angular.module('angularjsConsole.directives', [])
             recordCurrentCommand();
             newCommand();
           }
+        };
+
+        scope.scrollDown = function() {
+          element[0].scrollTop = element[0].scrollHeight;
         };
 
         var recordCurrentCommand = function() {

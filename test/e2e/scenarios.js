@@ -40,4 +40,19 @@ describe('angularjs-console', function() {
     expect(commands.get(1).getText()).toEqual('foo');
     expect(commands.get(2).getText()).toEqual('bar');
   });
+
+  it('should keeps scrolling following typing', function() {
+    element(by.css('div.angularjs-console-terminal')).click();
+
+    var textarea = element(by.css('textarea.angularjs-console-typer'));
+
+    for(var i = 0; i < 10; i++)
+    {
+      textarea.sendKeys('foo');
+      textarea.sendKeys(protractor.Key.ENTER);
+    }
+
+    expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollTop')).toEqual('34');
+    expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollHeight')).toEqual('234');
+  });
 });
