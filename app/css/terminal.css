@@ -22,6 +22,11 @@ div.angularjs-console-terminal div.angularjs-console-command-block
     font-family:monospace;
 }
 
+div.angularjs-console-terminal span.angularjs-console-prompt-label
+{
+    font-weight:bold
+}
+
 div.angularjs-console-terminal span.angularjs-console-cursor
 {
     background:#fefefe;
@@ -29,15 +34,14 @@ div.angularjs-console-terminal span.angularjs-console-cursor
     font-weight:bold
 }
 
-div.angularjs-console-terminal div.angularjs-console-message-error
+div.angularjs-console-terminal span.angularjs-console-invalid-warning
 {
     color:#ef0505;
     font-family:sans-serif;
-    font-weight:bold;
-    padding:0.1em;
 }
 
-div.angularjs-console-terminal span.angularjs-console-prompt-label
+div.angularjs-console-terminal span.angularjs-console-valid-complete
 {
-    font-weight:bold
+    color:#1ad027;
+    font-family:sans-serif;
 }

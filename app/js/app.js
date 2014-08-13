@@ -10,5 +10,18 @@ angular.module('angularjsConsole', [
       'carriageReturn': 13
     },
     'promptLabel': 'root@localhost > ',
-    'welcomeMessage': 'Welcome on this angularjs console demo'
+    'welcomeMessage': 'Welcome on this angularjs console demo',
+    'handleCommand': function(command) {
+
+      if(command['command'] === 'foo')
+      {
+        command['valid'] = {'message':'Correct !','code':'complete'};
+      }
+      else
+      {
+        command['invalid'] = {'message':'Wrong !','code':'warning'};
+      }
+
+      return command;
+    }
   });

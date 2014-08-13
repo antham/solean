@@ -41,6 +41,29 @@ describe('angularjs-console', function() {
     expect(commands.get(2).getText()).toEqual('bar');
   });
 
+  it('should displayed entered command lines', function() {
+    element(by.css('div.angularjs-console-terminal')).click();
+
+    var textarea = element(by.css('textarea.angularjs-console-typer'));
+    textarea.sendKeys('hello world !');
+    textarea.sendKeys(protractor.Key.ENTER);
+    textarea.sendKeys('foo');
+    textarea.sendKeys(protractor.Key.ENTER);
+    textarea.sendKeys('bar');
+    textarea.sendKeys(protractor.Key.ENTER);
+
+    expect(element.all(by.css('span.angularjs-console-prompt-label')).count()).toEqual(4);
+    expect(element.all(by.css('span.angularjs-console-command')).count()).toEqual(4);
+    expect(element.all(by.css('span.angularjs-console-invalid-warning')).count()).toEqual(2);
+    expect(element.all(by.css('span.angularjs-console-valid-complete')).count()).toEqual(1);
+
+    var commands = element.all(by.css('span.angularjs-console-command'));
+
+    expect(commands.get(0).getText()).toEqual('hello world !');
+    expect(commands.get(1).getText()).toEqual('foo');
+    expect(commands.get(2).getText()).toEqual('bar');
+  });
+
   it('should keeps scrolling following typing', function() {
     element(by.css('div.angularjs-console-terminal')).click();
 
@@ -52,7 +75,7 @@ describe('angularjs-console', function() {
       textarea.sendKeys(protractor.Key.ENTER);
     }
 
-    expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollTop')).toEqual('54');
-    expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollHeight')).toEqual('254');
+    expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollTop')).toEqual('254');
+    expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollHeight')).toEqual('454');
   });
 });
