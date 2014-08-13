@@ -12,7 +12,7 @@ describe('angularjs-console', function() {
     expect(element(by.css('span.angularjs-console-welcome-message')).getText()).toEqual('Welcome on this angularjs console demo');
     expect(element.all(by.css('div.angularjs-console-terminal')).count()).toEqual(1);
     expect(element(by.css('span.angularjs-console-prompt-label')).getText()).toEqual('root@localhost >');
-    expect(element(by.css('span.angularjs-console-prompt')).getText()).toEqual('');
+    expect(element(by.css('span.angularjs-console-command')).getText()).toEqual('');
   });
 
   it('should trigger focus on textarea after clicking in console area', function() {
@@ -32,8 +32,7 @@ describe('angularjs-console', function() {
     textarea.sendKeys(protractor.Key.ENTER);
 
     expect(element.all(by.css('span.angularjs-console-prompt-label')).count()).toEqual(4);
-    expect(element.all(by.css('span.angularjs-console-command')).count()).toEqual(3);
-    expect(element.all(by.css('span.angularjs-console-prompt')).count()).toEqual(1);
+    expect(element.all(by.css('span.angularjs-console-command')).count()).toEqual(4);
 
     var commands = element.all(by.css('span.angularjs-console-command'));
 
