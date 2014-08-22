@@ -1,10 +1,10 @@
 # Solean
 
-Emulate a custom terminal in a browser in JavaScript with AngularJS, a fork of [jquery-console](https://github.com/chrisdone/jquery-console) project
+Emulate a custom terminal in a browser in JavaScript with AngularJS, a fork of [jquery-console](https://github.com/chrisdone/jquery-console) project.
 
 # Usage
 
-Have a look to app folder which contains a complete example with index html, to see it in action run from the root of this project `npm start` and go to `http://localhost:8000/app` or have a look to live preview on [plunker](http://embed.plnkr.co/3joeTph4ciV2HeduJ8Af/preview)
+Have a look to app folder which contains a complete example, to see it working, run from the root of this project `npm start` and go to `http://localhost:8000/app`. A live preview is available on [plunker](http://embed.plnkr.co/3joeTph4ciV2HeduJ8Af/preview) as well.
 
 # Setup
 
@@ -42,4 +42,4 @@ angular.module('solean').
 
 # Testing
 
-Run server with `npm start` and afterwards run test suite with `grunt run-tests`
+Run server with `npm start` and afterwards run test suite with `grunt run-tests`.
