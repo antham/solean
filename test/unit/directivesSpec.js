@@ -1,15 +1,12 @@
 'use strict';
 
-/* jasmine specs for directives go here */
 
 describe('directives', function() {
 
   var $scope = null;
   var element = null;
 
-  beforeEach(module('angularjsConsole.directives',function($provide) {
-    $provide.value('config', {'promptLabel': 'root@localhost : '});
-  }));
+  beforeEach(module('angularjsConsole'));
 
   beforeEach(inject(function($compile, $rootScope){
     element = angular.element('<angularjs-console-terminal></angularjs-console-terminal>');
@@ -19,6 +16,6 @@ describe('directives', function() {
   }));
 
   it('should replace the element with the appropriate content', function() {
-    expect(element.html()).toContain('root@localhost : ');
+    expect(angular.element(element).text()).toContain('$ ');
   });
 });

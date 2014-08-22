@@ -1,10 +1,29 @@
 'use strict';
 
-/* Directives */
 
+angular.module('angularjsConsole', [])
+  .provider('angularjsConsoleConfig', function(){
+    var config = {
+      'mapping':{
+        'moveBackward': 37,
+        'moveForward': 39,
+        'carriageReturn': 13
+      },
+      'promptLabel': '$ ',
+      'welcomeMessage': null,
+      'handleCommand': function(command) {
+        return command;
+      }
+    };
 
-angular.module('angularjsConsole.directives', [])
-  .directive('angularjsConsoleTerminal', ['config', function(config) {
+    return {
+      config: config,
+      $get: function() {
+        return config;
+      }
+    }
+  })
+  .directive('angularjsConsoleTerminal', ['angularjsConsoleConfig', function(config) {
     return {
       restrict: 'AEC',
       template:
