@@ -12,8 +12,9 @@ angular.module('angularjsConsole.directives', [])
         '<div class="angularjs-console-command-block" ng-repeat="command in commands track by $index">' +
         '<div>' +
         '<span class="angularjs-console-prompt-label">{{ promptLabel }}</span>' +
-        '<span class="angularjs-console-command">{{ command.command }}</span>' +
-        '<span ng-if="$last" class="angularjs-console-cursor" ng-init="scrollDown();">&nbsp;</span>' +
+        '<span ng-if="!$last" class="angularjs-console-command">{{ command.command }}</span>' +
+        '<span ng-if="$last" class="angularjs-console-command"><span ng-repeat="character in command.command track by $index" ng-class="{\'angularjs-console-cursor\':$index==cursorIndex}">{{ character === " " ? "&nbsp;" : character }}</span></span>' +
+        '<span ng-if="$last && cursorIndex === null" class="angularjs-console-cursor" ng-init="scrollDown();">&nbsp;</span>' +
         '</div>' +
         '<div>' +
         '<span ng-if="command.valid" class="angularjs-console-valid-{{ command.valid.code }}">{{ command.valid.message }}</span>' +
@@ -24,12 +25,25 @@ angular.module('angularjsConsole.directives', [])
       link: function link(scope, element) {
         scope.promptLabel = config.promptLabel;
         scope.welcomeMessage = config.welcomeMessage;
+        scope.cursorIndex = null;
+
         var handleCommand = config.handleCommand;
 
         scope.handleInput = function(event) {
-          if(event.keyCode === config.mapping.carriageReturn) {
+          switch(event.keyCode)
+          {
+          case config.mapping.carriageReturn:
             normalizeCurrentCommand();
             newCommand();
+            break;
+          case config.mapping.moveForward:
+            moveCursorForward();
+            break;
+          case config.mapping.moveBackward:
+            moveCursorBackward();
+            break;
+          default:
+            followTyping();
           }
         };
 
@@ -48,6 +62,18 @@ angular.module('angularjsConsole.directives', [])
 
         var newCommand = function() {
           scope.commands.push({'command':''});
+        };
+
+        var moveCursorForward = function() {
+          scope.cursorIndex = scope.cursorIndex !== null && scope.cursorIndex + 1 < element.find('textarea')[0].value.length ? element.find('textarea')[0].selectionStart : null;
+        };
+
+        var moveCursorBackward = function() {
+          scope.cursorIndex = element.find('textarea')[0].selectionStart;
+        };
+
+        var followTyping = function() {
+          scope.cursorIndex = scope.cursorIndex !== null ? element.find('textarea')[0].selectionStart : null;
         };
 
         element.on('click', function() {

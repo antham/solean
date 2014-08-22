@@ -78,4 +78,30 @@ describe('angularjs-console', function() {
     expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollTop')).toEqual('254');
     expect(element(by.css('div.angularjs-console-terminal')).getAttribute('scrollHeight')).toEqual('454');
   });
+
+  it('should moves cursor backward and forward', function() {
+    var textarea = element(by.css('textarea.angularjs-console-typer'));
+
+    textarea.sendKeys('hello world !');
+
+    for(var i = 1; i < 8; i++)
+    {
+      textarea.sendKeys(protractor.Key.ARROW_LEFT);
+    }
+
+    expect(element(by.css('span.angularjs-console-cursor')).getText()).toEqual('w');
+
+    textarea.sendKeys('this is a ');
+
+    expect(element(by.css('span.angularjs-console-cursor')).getText()).toEqual('w');
+
+    expect(element.all(by.css('span.angularjs-console-command')).get(0).getText()).toEqual('hello this is a world !');
+
+    for(var j = 1; j < 15; j++)
+    {
+      textarea.sendKeys(protractor.Key.ARROW_RIGHT);
+    }
+
+    expect(element(by.css('span.angularjs-console-cursor')).getText()).toEqual(' ');
+  });
 });

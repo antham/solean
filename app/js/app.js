@@ -7,6 +7,8 @@ angular.module('angularjsConsole', [
 ])
   .value('config',{
     'mapping':{
+      'moveBackward': 37,
+      'moveForward': 39,
       'carriageReturn': 13
     },
     'promptLabel': 'root@localhost > ',
