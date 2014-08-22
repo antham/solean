@@ -20,7 +20,7 @@ describe('angularjs-console', function() {
     expect(browser.driver.switchTo().activeElement().getAttribute('class')).toContain('angularjs-console-typer');
   });
 
-  it('should displayed entered command lines', function() {
+  it('should displays entered command lines', function() {
     element(by.css('div.angularjs-console-terminal')).click();
 
     var textarea = element(by.css('textarea.angularjs-console-typer'));
@@ -41,7 +41,7 @@ describe('angularjs-console', function() {
     expect(commands.get(2).getText()).toEqual('bar');
   });
 
-  it('should displayed entered command lines', function() {
+  it('should displays entered command lines', function() {
     element(by.css('div.angularjs-console-terminal')).click();
 
     var textarea = element(by.css('textarea.angularjs-console-typer'));
