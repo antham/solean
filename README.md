@@ -4,7 +4,7 @@ Emulate a custom terminal in a browser in JavaScript with AngularJS, a fork of [
 
 # Usage
 
-Have a look to app folder which contains a complete example with index html, to see it in action run from the root of this project `npm start` and go to `http://localhost:8000/app`
+Have a look to app folder which contains a complete example with index html, to see it in action run from the root of this project `npm start` and go to `http://localhost:8000/app` or have a look to live preview on [plunker](http://embed.plnkr.co/3joeTph4ciV2HeduJ8Af/preview)
 
 # Setup
 
