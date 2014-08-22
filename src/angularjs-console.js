@@ -26,6 +26,7 @@ angular.module('angularjsConsole', [])
   .directive('angularjsConsoleTerminal', ['angularjsConsoleConfig', function(config) {
     return {
       restrict: 'AEC',
+      scope: true,
       template:
       '<span class="angularjs-console-welcome-message" ng-if="welcomeMessage">{{ welcomeMessage }}</span>' +
         '<div class="angularjs-console-command-block" ng-repeat="command in commands track by $index">' +
