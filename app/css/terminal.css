@@ -1,4 +1,4 @@
-div.angularjs-console-terminal
+div.solean-terminal
 {
     height:200px;
     background:#333;
@@ -9,38 +9,38 @@ div.angularjs-console-terminal
     font-size: 14px;
 }
 
-div.angularjs-console-terminal span.angularjs-console-welcome-message
+div.solean-terminal span.solean-welcome-message
 {
     color: #ffd700;
     font-family: monospace;
     font-weight: bold
 }
 
-div.angularjs-console-terminal div.angularjs-console-command-block
+div.solean-terminal div.solean-command-block
 {
     color:#fff;
     font-family:monospace;
 }
 
-div.angularjs-console-terminal span.angularjs-console-prompt-label
+div.solean-terminal span.solean-prompt-label
 {
     font-weight:bold
 }
 
-div.angularjs-console-terminal span.angularjs-console-cursor
+div.solean-terminal span.solean-cursor
 {
     background:#fefefe;
     color:#333;
     font-weight:bold
 }
 
-div.angularjs-console-terminal span.angularjs-console-invalid-warning
+div.solean-terminal span.solean-invalid-warning
 {
     color:#ef0505;
     font-family:sans-serif;
 }
 
-div.angularjs-console-terminal span.angularjs-console-valid-complete
+div.solean-terminal span.solean-valid-complete
 {
     color:#1ad027;
     font-family:sans-serif;

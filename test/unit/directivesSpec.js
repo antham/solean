@@ -6,10 +6,10 @@ describe('directives', function() {
   var $scope = null;
   var element = null;
 
-  beforeEach(module('angularjsConsole'));
+  beforeEach(module('solean'));
 
   beforeEach(inject(function($compile, $rootScope){
-    element = angular.element('<angularjs-console-terminal></angularjs-console-terminal>');
+    element = angular.element('<solean-terminal></solean-terminal>');
     $scope = $rootScope.$new();
     $compile(element)($scope);
     $scope.$digest();

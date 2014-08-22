@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('angularjsConsole', [])
-  .provider('angularjsConsoleConfig', function(){
+angular.module('solean', [])
+  .provider('soleanConfig', function(){
     var config = {
       'mapping':{
         'moveBackward': 37,
@@ -23,25 +23,25 @@ angular.module('angularjsConsole', [])
       }
     }
   })
-  .directive('angularjsConsoleTerminal', ['angularjsConsoleConfig', function(config) {
+  .directive('soleanTerminal', ['soleanConfig', function(config) {
     return {
       restrict: 'AEC',
       scope: true,
       template:
-      '<span class="angularjs-console-welcome-message" ng-if="welcomeMessage">{{ welcomeMessage }}</span>' +
-        '<div class="angularjs-console-command-block" ng-repeat="command in commands track by $index">' +
+      '<span class="solean-welcome-message" ng-if="welcomeMessage">{{ welcomeMessage }}</span>' +
+        '<div class="solean-command-block" ng-repeat="command in commands track by $index">' +
         '<div>' +
-        '<span class="angularjs-console-prompt-label">{{ promptLabel }}</span>' +
-        '<span ng-if="!$last" class="angularjs-console-command">{{ command.command }}</span>' +
-        '<span ng-if="$last" class="angularjs-console-command"><span ng-repeat="character in command.command track by $index" ng-class="{\'angularjs-console-cursor\':$index==cursorIndex}">{{ character === " " ? "&nbsp;" : character }}</span></span>' +
-        '<span ng-if="$last && cursorIndex === null" class="angularjs-console-cursor" ng-init="scrollDown();">&nbsp;</span>' +
+        '<span class="solean-prompt-label">{{ promptLabel }}</span>' +
+        '<span ng-if="!$last" class="solean-command">{{ command.command }}</span>' +
+        '<span ng-if="$last" class="solean-command"><span ng-repeat="character in command.command track by $index" ng-class="{\'solean-cursor\':$index==cursorIndex}">{{ character === " " ? "&nbsp;" : character }}</span></span>' +
+        '<span ng-if="$last && cursorIndex === null" class="solean-cursor" ng-init="scrollDown();">&nbsp;</span>' +
         '</div>' +
         '<div>' +
-        '<span ng-if="command.valid" class="angularjs-console-valid-{{ command.valid.code }}">{{ command.valid.message }}</span>' +
-        '<span ng-if="command.invalid" class="angularjs-console-invalid-{{ command.invalid.code }}">{{ command.invalid.message }}</span>' +
+        '<span ng-if="command.valid" class="solean-valid-{{ command.valid.code }}">{{ command.valid.message }}</span>' +
+        '<span ng-if="command.invalid" class="solean-invalid-{{ command.invalid.code }}">{{ command.invalid.message }}</span>' +
         '</div>' +
         '</div>' +
-        '<textarea style="position:fixed;left:-9999px;" ng-keyup="handleInput($event);" ng-model="commands[commands.length-1].command" class="angularjs-console-typer" ng-trim="false"></textarea>',
+        '<textarea style="position:fixed;left:-9999px;" ng-keyup="handleInput($event);" ng-model="commands[commands.length-1].command" class="solean-typer" ng-trim="false"></textarea>',
       link: function link(scope, element) {
         scope.promptLabel = config.promptLabel;
         scope.welcomeMessage = config.welcomeMessage;

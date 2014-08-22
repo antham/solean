@@ -2,11 +2,11 @@
 
 
 
-angular.module('angularjsConsole').
-  config(function(angularjsConsoleConfigProvider){
-    angularjsConsoleConfigProvider.config.welcomeMessage = 'Welcome on this angularjs console demo';
-    angularjsConsoleConfigProvider.config.promptLabel = 'root@localhost > ';
-    angularjsConsoleConfigProvider.config.handleCommand = function(command) {
+angular.module('solean').
+  config(function(soleanConfigProvider){
+    soleanConfigProvider.config.welcomeMessage = 'Welcome on this angularjs console demo';
+    soleanConfigProvider.config.promptLabel = 'root@localhost > ';
+    soleanConfigProvider.config.handleCommand = function(command) {
       if(command['command'] === 'foo')
       {
         command['valid'] = {'message':'Correct !','code':'complete'};
