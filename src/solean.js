@@ -5,9 +5,9 @@ angular.module('solean', [])
   .provider('soleanConfig', function(){
     var config = {
       'mapping':{
-        'moveBackward': 37,
-        'moveForward': 39,
-        'carriageReturn': 13
+        37: 'moveBackward',
+        39: 'moveForward',
+        13: 'carriageReturn'
       },
       'promptLabel': '$ ',
       'welcomeMessage': null,
@@ -50,16 +50,17 @@ angular.module('solean', [])
         var handleCommand = config.handleCommand;
 
         scope.handleInput = function(event) {
-          switch(event.keyCode)
+
+          switch(config.mapping[event.keyCode])
           {
-          case config.mapping.carriageReturn:
+          case 'carriageReturn':
             normalizeCurrentCommand();
             newCommand();
             break;
-          case config.mapping.moveForward:
+          case 'moveForward':
             moveCursorForward();
             break;
-          case config.mapping.moveBackward:
+          case 'moveBackward':
             moveCursorBackward();
             break;
           default:
